@@ -1,8 +1,7 @@
 streamlit
-Python==3.12.13
+opencv-python
 TensorFlow==2.20.0
 scikit-learn==1.6.1
 NumPy==2.0.2
-OpenCV==4.13.0
 pillow
  
