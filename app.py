@@ -16,20 +16,18 @@ def load_my_model():
     
     if not os.path.exists(model_path):
         with st.spinner("Downloading your 145MB Inception model. Please wait a moment..."):
-            google_drive_url = "https://drive.google.com/file/d/1LfuIpjHe3SXjFPArQcoroqH3qd3kef91/view?usp=sharing"
+            # 1. REPLACE THE JUMBLE BELOW WITH YOUR EXACT FILE ID FROM STEP 2:
+            file_id = "https://drive.google.com/file/d/1LfuIpjHe3SXjFPArQcoroqH3qd3kef91/view?usp=sharing"
             
-            # This line converts regular link into a direct download link
-            if "file/d/" in google_drive_url:
-                file_id = google_drive_url.split("/d/")[1].split("/")[0]
-                direct_download_url = f"https://google.com{file_id}"
-            else:
-                direct_download_url = google_drive_url
-                
+            # 2. This creates an un-blockable direct download link
+            direct_download_url = f"https://google.com{file_id}"
+            
+            # 3. Download the file safely
             urllib.request.urlretrieve(direct_download_url, model_path)
             
-    # Clear memory background processes to prevent crashes
     tf.keras.backend.clear_session()
     return tf.keras.models.load_model(model_path)
+
 
 # Load the model
 try:
