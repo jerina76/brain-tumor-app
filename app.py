@@ -12,7 +12,7 @@ st.title("🧠 Brain Tumor Multi-Classification App")
 # 2. Download Model From Google Drive Automatically
 @st.cache_resource
 def load_my_model():
-    model_path = "tumor_model.keras"
+    model_path = "inception_brain_tumor_final.keras"
     
     if not os.path.exists(model_path):
         with st.spinner("Downloading your 145MB Inception model. Please wait a moment..."):
